@@ -4,7 +4,7 @@
 
 import User from "@models/User";
 import Bcrypt from "bcryptjs";
-import mongoose from "mongoose";
+import { connect, disconnect } from "@test/utils/mongoose";
 import jwt from "jsonwebtoken";
 import config from "@config";
 
@@ -18,12 +18,7 @@ describe("The user model", () => {
   let CreatedUser;
 
   beforeAll(async () => {
-    const conn = await mongoose.connect(
-      "mongodb://localhost:27017/auth-app_test",
-      {
-        useNewUrlParser: true,
-      }
-    );
+    await connect();
 
     CreatedUser = await User.create(user);
   });
@@ -47,6 +42,6 @@ describe("The user model", () => {
   });
 
   afterAll(async () => {
-    await mongoose.connection.close();
+    await disconnect();
   });
 });
