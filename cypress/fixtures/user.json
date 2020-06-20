@@ -1,0 +1,10 @@
+{
+    "data": {
+	"user": {
+	    "name": "Datian",
+	    "email": "datian@jacob.com",
+	    "password": "asdf;lkj"
+	}
+    },
+    "token": "sampletakenblahblahblah"
+}
